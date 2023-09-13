@@ -116,32 +116,7 @@ async function deleteLine(table,condition){
 
 async function insert(table,insert){
 
-    let objectNumber
-
-    const values=Object.values(insert)
-
     const keys=Object.keys(insert)
-
-    values.map((item,index)=>{
-        if(typeof(item)==='object'){
-            objectNumber=index
-            return
-        }
-        return
-    })
-    
-
-    if(objectNumber){
-     
-        const keyArrayObjects=keys[objectNumber]
-
-        const arrayString=insert[keyArrayObjects].map((item)=>{
-            return  JSON.stringify(item)
-        })
-    
-        insert[keyArrayObjects]=arrayString
-        
-    }
     
     await sql`insert into ${sql(table)} ${sql(insert, keys)}`
 }

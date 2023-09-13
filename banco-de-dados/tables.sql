@@ -34,6 +34,7 @@ CREATE TABLE historic(
   historic JSON[] NOT NULL,
   id_user VARCHAR(200) NOT NULL,
   FOREIGN KEY(id_user) REFERENCES users(id)
+  open BOOL NOT NULL DEFAULT true
 )
 
 CREATE TABLE comments(

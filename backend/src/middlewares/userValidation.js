@@ -6,8 +6,8 @@ function validationCreateUser(){
         body('name')
             .isString()
             .withMessage('Name is required')
-            .isLength({min:3})
-            .withMessage('The name must be at least three characters long'),
+            .isLength({min:3,max:11})
+            .withMessage('Name too short or too long'),
         body('email')
             .isString()
             .withMessage('E-mail is required')
@@ -49,8 +49,8 @@ function validationUpdateUser(){
             .optional()
             .isString()
             .withMessage('Name is required')
-            .isLength({min:3})
-            .withMessage('The name must be at least three characters long'),
+            .isLength({min:3,max:11})
+            .withMessage('Name too short or too long'),
         body('newPassword')
             .optional()
             .isString()
