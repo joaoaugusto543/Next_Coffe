@@ -26,12 +26,13 @@ CREATE TABLE users(
   image VARCHAR(200) NOT NULL,
   email VARCHAR(200) UNIQUE NOT NULL,
   password VARCHAR(200) NOT NULL,
-  admin BOOL NOT NULL DEFAULT false
+  admin BOOL NOT NULL DEFAULT false,
+  favorites JSON[] NOT NULL DEFAULT '{}'
 );
 
 CREATE TABLE historic(
   id VARCHAR(200) NOT NULL PRIMARY KEY,
-  historic JSON[] NOT NULL,
+  products JSON[] NOT NULL,
   id_user VARCHAR(200) NOT NULL,
   FOREIGN KEY(id_user) REFERENCES users(id),
   open BOOL NOT NULL DEFAULT true
