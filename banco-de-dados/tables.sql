@@ -33,7 +33,7 @@ CREATE TABLE historic(
   id VARCHAR(200) NOT NULL PRIMARY KEY,
   historic JSON[] NOT NULL,
   id_user VARCHAR(200) NOT NULL,
-  FOREIGN KEY(id_user) REFERENCES users(id)
+  FOREIGN KEY(id_user) REFERENCES users(id),
   open BOOL NOT NULL DEFAULT true
 )
 
