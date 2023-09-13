@@ -121,7 +121,7 @@ async function updateUser(req,res){
     }
 }
 
-async function deleteUser(){
+async function deleteUser(req,res){
     try {
         const {id}=req.params
 
@@ -140,6 +140,8 @@ async function deleteUser(){
         }
 
         await deleteLine('users',conditionId)
+
+        return res.status(200).json(user)
 
     } catch (error) {
         console.log(error)
