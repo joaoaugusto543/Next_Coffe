@@ -3,7 +3,9 @@ CREATE TABLE products(
   name VARCHAR(200) NOT NULL,
   image VARCHAR(200) NOT NULL,
   description TEXT NOT NULL,
-  price VARCHAR(200) NOT NULL
+  price VARCHAR(200) NOT NULL,
+  discount FLOAT,
+  type VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE assessment(
