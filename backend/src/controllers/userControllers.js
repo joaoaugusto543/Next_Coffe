@@ -132,7 +132,7 @@ async function deleteUser(req,res){
         const user=(await select('users',['id'],conditionId))[0]
 
         if(!user){
-            return res.status(500).json({error:'User not found'})
+            return res.status(404).json({error:'User not found'})
         }
 
         if(!reqUser.admin && reqUser.id !== user.id){
@@ -157,7 +157,7 @@ function profile(req,res){
         const {id,name,image,email}=reqUser
 
         if(!reqUser){
-            return res.status(500).json({error:'User not found'}) 
+            return res.status(404).json({error:'User not found'}) 
         }
 
         const user={
@@ -175,12 +175,51 @@ function profile(req,res){
     }
 }
 
+async function addToFavorites(req,res){
+    try {
+        const reqUser=req.user
+
+        if(!reqUser){
+            return res.status(404).json({error:'User not found'}) 
+        }
+
+        const {idProduct}=req.params
+
+        const conditionIdProduct=`id = '${idProduct}'`
+
+        const product=(await select('products','*',conditionIdProduct))[0]
+
+        if(!product){
+            return res.status(404).json({error:'Product not found'})
+        }
+
+        const favorites=reqUser.favorites
+
+        favorites.push("'" + JSON.stringify(product) + "'")
+
+        reqUser.favorites=favorites
+
+        const set=` favorites = array [${reqUser.favorites}]`
+
+        const conditionId=`id = '${reqUser.id}'`
+
+        await update('users',set,conditionId)
+
+        return res.status(200).json(product)
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({error:'Internal error'})
+    } 
+}
+
 const userControllers={
     createUser,
     createUserAdmin,
     updateUser,
     deleteUser,
-    profile
+    profile,
+    addToFavorites
 }
 
 module.exports=userControllers
