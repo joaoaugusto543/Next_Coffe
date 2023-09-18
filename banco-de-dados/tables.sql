@@ -24,7 +24,7 @@ CREATE TABLE historic(
   id_user VARCHAR(200) NOT NULL,
   FOREIGN KEY(id_user) REFERENCES users(id),
   open BOOL NOT NULL DEFAULT true
-)
+);
 
 CREATE TABLE comments(
   id VARCHAR(200) NOT NULL PRIMARY KEY,
