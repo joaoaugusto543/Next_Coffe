@@ -41,9 +41,11 @@ CREATE TABLE historic(
 CREATE TABLE comments(
   id VARCHAR(200) NOT NULL PRIMARY KEY,
   id_product VARCHAR(200) NOT NULL,
+  id_user VARCHAR(200) NOT NULL,
   name VARCHAR(200) NOT NULL,
   image VARCHAR(200) NOT NULL,
   assessment FLOAT NOT NULL,
   comment TEXT NOT NULL,
-  FOREIGN KEY (id_product) REFERENCES products(id)
+  FOREIGN KEY (id_product) REFERENCES products(id),
+  FOREIGN KEY (id_user) REFERENCES users(id)
 );
