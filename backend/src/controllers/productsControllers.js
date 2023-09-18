@@ -134,7 +134,6 @@ async function getProducts(req,res){
     }
 }
 
-
 async function getProduct(req,res){
     try {
 
