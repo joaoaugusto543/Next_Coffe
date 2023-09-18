@@ -154,11 +154,11 @@ function profile(req,res){
 
         const reqUser=req.user
 
-        const {id,name,image,email}=reqUser
-
         if(!reqUser){
             return res.status(404).json({error:'User not found'}) 
         }
+        
+        const {id,name,image,email}=reqUser
 
         const user={
             id,
@@ -193,7 +193,13 @@ async function addToFavorites(req,res){
             return res.status(404).json({error:'Product not found'})
         }
 
-        const favorites=reqUser.favorites
+        if(reqUser.favorites.includes(JSON.stringify(product))){
+            return res.status(500).json({error:'Was once a favorite'})
+        }
+
+        const favorites=reqUser.favorites.map((favorite)=>{
+            return "'" + favorite + "'"
+        })
 
         favorites.push("'" + JSON.stringify(product) + "'")
 
@@ -213,13 +219,58 @@ async function addToFavorites(req,res){
     } 
 }
 
+async function removeToFavorites(req,res){
+    try {
+        const reqUser=req.user
+
+        if(!reqUser){
+            return res.status(404).json({error:'User not found'}) 
+        }
+
+        const {idProduct}=req.params
+
+        const favoritesJson=reqUser.favorites.map((favorite)=>JSON.parse(favorite))
+
+        const favorite=favoritesJson.find((favorite)=>favorite.id===idProduct)
+
+        if(!favorite){
+            return res.status(404).json({error:'Product not found'}) 
+        }
+
+        const filteredFavorites=favoritesJson.filter((favorite)=>favorite.id !== idProduct)
+
+        const favoritesString=filteredFavorites.map((favorite)=> "'" + JSON.stringify(favorite) + "'")
+
+        const conditionId=`id = '${reqUser.id}'`
+
+        if(filteredFavorites.length !== 0){
+
+            const set=` favorites = array [${favoritesString}]`
+            await update('users',set,conditionId)
+ 
+        }else{
+ 
+            const set=` favorites = '{}'`
+ 
+            await update('users',set,conditionId) 
+        }
+
+        return res.status(200).json({filteredFavorites})
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({error:'Internal error'})
+    } 
+}
+
 const userControllers={
     createUser,
     createUserAdmin,
     updateUser,
     deleteUser,
     profile,
-    addToFavorites
+    addToFavorites,
+    removeToFavorites
 }
 
 module.exports=userControllers
