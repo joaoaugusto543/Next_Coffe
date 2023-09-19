@@ -141,6 +141,10 @@ async function deleteUser(req,res){
 
         await deleteLine('users',conditionId)
 
+        const conditionIdUser=`id_user = '${id}'`
+
+        await deleteLine('comments',conditionIdUser)
+
         return res.status(200).json(user)
 
     } catch (error) {
