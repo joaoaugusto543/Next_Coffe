@@ -8,7 +8,7 @@ const baseUrl='/api/users'
 
 describe('userRoutes',()=>{
 
-    async function createProduct(id){
+    async function createProduct(){
 
         const newProduct={
             id:uuidv4(),
