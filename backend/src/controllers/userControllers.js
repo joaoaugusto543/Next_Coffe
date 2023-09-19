@@ -192,24 +192,26 @@ async function addToFavorites(req,res){
         if(!product){
             return res.status(404).json({error:'Product not found'})
         }
-
+        
         if(reqUser.favorites.includes(JSON.stringify(product))){
             return res.status(500).json({error:'Was once a favorite'})
         }
 
+        
         const favorites=reqUser.favorites.map((favorite)=>{
             return "'" + favorite + "'"
         })
-
+        
         favorites.push("'" + JSON.stringify(product) + "'")
-
+        
         reqUser.favorites=favorites
-
+        
         const set=` favorites = array [${reqUser.favorites}]`
-
+        
         const conditionId=`id = '${reqUser.id}'`
-
+        
         await update('users',set,conditionId)
+        
 
         return res.status(200).json(product)
 

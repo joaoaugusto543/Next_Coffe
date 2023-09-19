@@ -6,8 +6,6 @@ async function createProduct(req,res){
 
         const reqUser=req.user
 
-        console.log(reqUser)
-
         if(!reqUser.admin){
             return res.status(401).json({error:'Administrators only'})
         }

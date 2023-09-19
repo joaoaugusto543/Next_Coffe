@@ -92,6 +92,7 @@ async function update(table,set,condition){
 }
 
 async function deleteLine(table,condition){
+
     if(condition){
         const query=sql `DELETE FROM ${sql(table)} WHERE ` 
 

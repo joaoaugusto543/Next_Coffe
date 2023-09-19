@@ -15,7 +15,7 @@ CREATE TABLE users(
   email VARCHAR(200) UNIQUE NOT NULL,
   password VARCHAR(200) NOT NULL,
   admin BOOL NOT NULL DEFAULT false,
-  favorites JSON[] NOT NULL DEFAULT '{}'
+  favorites TEXT[] NOT NULL DEFAULT '{}'
 );
 
 CREATE TABLE historic(
