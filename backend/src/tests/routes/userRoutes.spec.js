@@ -61,7 +61,7 @@ describe('userRoutes',()=>{
         return token
     }
 
-    it('Create user',async ()=>{
+    it('CreateUser',async ()=>{
 
         const newUser={
             email:'test@gmail.com',
@@ -83,7 +83,7 @@ describe('userRoutes',()=>{
 
     })
 
-    it('User already exists / create user',async ()=>{
+    it('User already exists / createUser',async ()=>{
 
         const newUser={
             id:'637326',
@@ -113,7 +113,7 @@ describe('userRoutes',()=>{
 
     })
 
-    it('Create user admin',async ()=>{
+    it('CreateUserAdmin',async ()=>{
 
         const {email,id}=await createUser('Admin_ronaldo@gmail.com',true)
 
@@ -142,7 +142,7 @@ describe('userRoutes',()=>{
 
     })
 
-    it('Administrators only / create user admin',async ()=>{
+    it('Administrators only / createUserAdmin',async ()=>{
 
         const {email,id}=await createUser('Admin_marcao@gmail.com',false)
 
@@ -166,7 +166,7 @@ describe('userRoutes',()=>{
   
     })
 
-    it('User already exists / create user admin',async ()=>{
+    it('User already exists / createUserAdmin',async ()=>{
 
         const {email,id}=await createUser('Admin_lopes@gmail.com',true)
 
@@ -191,7 +191,7 @@ describe('userRoutes',()=>{
 
     })
 
-    it('update user',async ()=>{
+    it('updateUser',async ()=>{
 
         const {email,id,name}=await createUser('ronaldo@gmail.com',false)
 
@@ -215,7 +215,7 @@ describe('userRoutes',()=>{
 
     })
 
-    it('Delete user',async ()=>{
+    it('DeleteUser',async ()=>{
 
         const {email,id}=await createUser('pedro@gmail.com',false)
 
@@ -232,7 +232,7 @@ describe('userRoutes',()=>{
 
     })
 
-    it('Users cannot delete accounts / delete user',async ()=>{
+    it('Users cannot delete accounts / deleteUser',async ()=>{
 
         const userAuth=await createUser('pedro@gmail.com',false)
 
@@ -256,7 +256,7 @@ describe('userRoutes',()=>{
 
     })
 
-    it('Admin users can delete any account / delete user',async ()=>{
+    it('Admin users can delete any account / deleteUser',async ()=>{
 
         const userAuth=await createUser('admin_pedro@gmail.com',true)
 

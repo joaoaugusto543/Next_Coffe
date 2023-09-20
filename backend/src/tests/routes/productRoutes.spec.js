@@ -7,7 +7,7 @@ const baseUrl='/api/products'
 
 describe('ProductRoutes',()=>{
 
-    async function createProduct(id){
+    async function createProduct(){
 
         const newProduct={
             id:uuidv4(),
@@ -60,7 +60,7 @@ describe('ProductRoutes',()=>{
         return token
     }
 
-    it('Create product',async ()=>{
+    it('CreateProduct',async ()=>{
 
         const {email,id:idUser}=await createUser('Admin_fsbfhf@gmail.com',true)
 
@@ -90,7 +90,7 @@ describe('ProductRoutes',()=>{
         expect(product.price).toBe(newProduct.price)
     })
 
-    it('Administrators only / create product',async ()=>{
+    it('Administrators only / createProduct',async ()=>{
 
         const {email,id}=await createUser('Admin_fdsjbhgbdf@gmail.com',false)
 
@@ -114,7 +114,7 @@ describe('ProductRoutes',()=>{
         expect(error).toBe('Administrators only')
     })
 
-    it('Update product',async ()=>{
+    it('UpdateProduct',async ()=>{
 
         const {email,id:idUser}=await createUser('Admin_vwadgtwvdy@gmail.com',true)
 
@@ -140,7 +140,7 @@ describe('ProductRoutes',()=>{
         expect(product.name).toBe(update.name)
     })
 
-    it('Administrators only / update product',async ()=>{
+    it('Administrators only / updateProduct',async ()=>{
 
         const {email,id:idUser}=await createUser('Admin_vwadgdsfdd@gmail.com',false)
 
@@ -162,7 +162,7 @@ describe('ProductRoutes',()=>{
         expect(error).toBe('Administrators only')
     })
 
-    it('Product not found / update product',async ()=>{
+    it('Product not found / updateProduct',async ()=>{
 
         const {email,id:idUser}=await createUser('Admin_vwjsfdbfsyhdb@gmail.com',true)
 
@@ -181,7 +181,7 @@ describe('ProductRoutes',()=>{
         expect(error).toBe('Product not found')
     })
 
-    it('Delete product',async ()=>{
+    it('DeleteProduct',async ()=>{
 
         const {email,id:idUser}=await createUser('Admin_vwaddhve@gmail.com',true)
 
@@ -200,7 +200,7 @@ describe('ProductRoutes',()=>{
         expect(product).toBeUndefined()
     })
 
-    it('Product not found / delete product',async ()=>{
+    it('Product not found / deleteProduct',async ()=>{
 
         const {email,id:idUser}=await createUser('Admin_vwaddhve@gmail.com',true)
 
@@ -215,7 +215,7 @@ describe('ProductRoutes',()=>{
         expect(error).toBe('Product not found')
     })
 
-    it('Get products',async ()=>{
+    it('GetProducts',async ()=>{
         
         const {id:idOne}=await createProduct()
         const {id:idTwo}=await createProduct()
@@ -230,7 +230,7 @@ describe('ProductRoutes',()=>{
         expect(Array.isArray(products)).toBeTruthy()
     })
 
-    it('Get product',async ()=>{
+    it('GetProduct',async ()=>{
         
         const {id}=await createProduct()
 
@@ -243,7 +243,7 @@ describe('ProductRoutes',()=>{
         expect(product.id).toBe(id)
     })
 
-    it('Filter products',async ()=>{
+    it('FilterProducts',async ()=>{
         
         const {type,id}=await createProduct()
 
