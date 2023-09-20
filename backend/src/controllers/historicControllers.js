@@ -83,7 +83,11 @@ async function addProduct(req,res){
 async function removeProduct(req,res){
     try {
 
-        const reqUser=req.user
+       const reqUser=req.user
+
+       if(!reqUser){
+            return res.status(200).json({error:'User not found'})
+       }
 
        const {idProduct,idHistoric}=req.params
        
@@ -220,13 +224,9 @@ async function getHistorics(req,res){
 
         const conditionIdUser=`id_user = '${id}'`
 
-        const historic=(await select('historic','*',conditionIdUser))
+        const historics=await select('historic','*',conditionIdUser)
 
-        if(!historic){
-            return res.status(404).json({error:'Historic not found'})
-        }
-
-        return res.status(200).json(historic)
+        return res.status(200).json(historics)
         
     } catch (error) {
         console.log(error)
