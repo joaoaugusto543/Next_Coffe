@@ -175,7 +175,7 @@ describe('commentRoutes',()=>{
     
         const comment=(await select('comments',['id'],conditionId))[0]
 
-        await deleteUser(id)
+        await deleteUser(idUser)
         await deleteProduct(idProduct)
 
         expect(comment).toBeUndefined()
@@ -198,7 +198,7 @@ describe('commentRoutes',()=>{
     
         const comment=(await select('comments',['id'],conditionId))[0]
 
-        await deleteUser(id)
+        await deleteUser(idUser)
         await deleteProduct(idProduct)
 
         expect(comment).toBeUndefined()
@@ -225,7 +225,7 @@ describe('commentRoutes',()=>{
 
         const {id:idProduct}=await createProduct()
 
-        const {id:idUser,name,image}=await createUser('reeewer@gmail.com',false)
+        const {id:idUser,name,image}=await createUser('sdniuafdfwbhdsb@gmail.com',false)
 
         const {id}=await createComment(name,image,idUser,idProduct)
 
@@ -236,6 +236,11 @@ describe('commentRoutes',()=>{
         const res=await request(app).delete(`${baseUrl}/${id}`).set('Authorization',token)
 
         const {error}=res.body
+
+        await deleteComment(idUser)
+        await deleteUser(idUser)
+        await deleteUser(user.id)
+        await deleteProduct(idProduct)
 
         expect(error).toBe('Not authorized')
 
@@ -259,7 +264,8 @@ describe('commentRoutes',()=>{
     
         const comment=(await select('comments',['id'],conditionId))[0]
 
-        await deleteUser(id)
+        await deleteUser(idUser)
+        await deleteUser(user.id)
         await deleteProduct(idProduct)
 
         expect(comment).toBeUndefined()
@@ -286,3 +292,4 @@ describe('commentRoutes',()=>{
 
     })
 })
+
