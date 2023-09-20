@@ -1,4 +1,4 @@
-const { select, insert } = require("../config/db")
+const { select, insert, deleteLine } = require("../config/db")
 const { v4: uuidv4 } = require('uuid')
 
 async function createComment(req,res){
@@ -9,6 +9,12 @@ async function createComment(req,res){
         const {comment,assessment}=req.body
 
         const {id:idUser,image,name}=req.user
+
+        const reqUser=req.user
+
+        if(!reqUser){
+            return res.status(404).json({error:'User not found'})
+        }
 
         const conditionId=`id = '${idProduct}'`
 
@@ -64,6 +70,8 @@ async function deleteComment(req,res){
         if(comment.id_user !== idUser && !admin){
             return res.status(401).json({error:'Not authorized'})
         }
+
+        await deleteLine('comments',conditionId)
 
         return res.status(200).json(comment)
         
