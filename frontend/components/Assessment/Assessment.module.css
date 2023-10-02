@@ -1,0 +1,49 @@
+.assessment{
+    width: 60%;
+    margin:3em 0;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+}
+
+.starsPercentage,.total{
+    width: 50%;
+}
+
+.total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.total h1{
+    font-size: 30px;
+    margin-bottom: 0.2em;
+}
+
+.starPercentagem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:1em ;
+}
+
+.bar{
+    position: relative;
+    height: 20px;
+    width: 100%;
+    background-color: rgb(197, 197, 197);
+    border-radius: 20px;
+    margin-left: 1em;
+}
+
+.bar div{
+    height: 20px;
+    width: 0%;
+    background-color: yellow;
+    border-radius: 20px;
+    transition: 0.5s;
+}

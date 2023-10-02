@@ -1,0 +1,124 @@
+.login{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    background: url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80);
+    background-size: cover;
+}
+
+.boxLogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(6px);
+}
+
+.divForm{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 400px;
+    width: 400px;
+    padding: 2em;
+}
+
+.divForm h1{
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 1em;
+    font-family: 'Lora', serif;
+}
+
+.formLogin{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formLogin label{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.formLogin label > span{
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formLogin input[type='email'],.formLogin input[type='password']{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    padding: 0.5em;
+    padding-left: 0;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formLogin input[type='email']::placeholder,.formLogin input[type='password']::placeholder{
+    color: #fff
+}
+
+.formLogin input[type='submit']{
+    margin: 0 auto;
+    width: 120px;
+    background-color: rgb(26, 206, 26);
+    height: 40px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 1em;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: .5s;
+}
+
+.formLogin input[type='submit']:hover{
+    background-color: rgb(45, 194, 45);
+}
+
+.boxLogin a{
+    margin-top:1.5em ;
+    color: rgb(26, 206, 26);
+    font-size: 18px;
+}
+
+.linkHome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 1em;
+    font-family: 'Lora', serif;
+}
+
+.linkHome svg{
+    font-size: 25px;
+    margin-right: 0.5em;
+}

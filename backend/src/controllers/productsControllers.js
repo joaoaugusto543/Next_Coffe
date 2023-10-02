@@ -143,8 +143,8 @@ async function getProduct(req,res){
 
         const conditionId=`id = '${id}'`
 
-        const product=(await select('products',['id','discount','image','name','price','type'],conditionId))[0]
-
+        const product=(await select('products',['id','discount','image','name','price','type','description'],conditionId))[0]
+   
         return res.status(200).json(product)
 
     } catch (error) {

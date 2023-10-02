@@ -1,0 +1,48 @@
+.comment{
+    padding: 0.5em;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2em;
+    background-color: aliceblue;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.user p{
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.comment img{
+    width: 50px;
+    border-radius: 30px;
+    margin-right: 1em;
+}
+
+.fullStar{
+    color: yellow;
+}
+
+.emptyStar{
+    color:gray
+}
+
+.stars{
+    display: flex;
+    margin-bottom: 0.5em;
+}
+
+.textComment{
+    font-family: 'Roboto', sans-serif;
+}

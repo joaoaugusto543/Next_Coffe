@@ -15,7 +15,7 @@ async function createSession(req,res){
     
         const conditionEmail=`email = '${email}'`
         
-        const columns=['id','name','email','image','password']
+        const columns=['id','name','email','image','password','admin']
 
         const user=(await select(tableUsers,columns,conditionEmail))[0]
 
@@ -27,7 +27,7 @@ async function createSession(req,res){
             return res.status(401).json({authenticationError:'user / password invalid'})
         }
         
-        const {id,name,image}=user
+        const {id,name,image,admin}=user
                 
         const secret=process.env.TOKEN_SECRET
 
@@ -37,7 +37,8 @@ async function createSession(req,res){
                     id,
                     name,
                     email,
-                    image
+                    image,
+                    admin
                 },
                 token:jwt.sign({id},secret,{
                     expiresIn:'7d'
