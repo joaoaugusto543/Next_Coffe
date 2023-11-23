@@ -158,3 +158,9 @@
     font-size: 25px;
     margin-right: 0.5em;
 }
+
+.error{
+    color: red;
+    margin-top: 0.3em;
+    font-weight: bold;
+}

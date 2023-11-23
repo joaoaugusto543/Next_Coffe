@@ -1,3 +1,7 @@
+.divProduct{
+    position: relative;
+}
+
 .linkProduct{
     text-decoration: none;
     color: #000;
@@ -14,6 +18,19 @@
     cursor: pointer;
 }
   
+.threePoints{
+    position: absolute;
+    top: 14px;
+    left: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    padding: 0.5em;
+}
   
 .product img{
     object-fit: cover;
@@ -72,6 +89,7 @@
     font-weight: bold;
     border: none;
     transition: 0.5s;
+
 }
 
 .buy input[type='submit']:hover{
@@ -119,5 +137,62 @@
     
 }
 
+.favorite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    margin: 0.5em;
+    padding: 0.8em;
+    border-radius: 30px;
+    background-color: #fff;
+    border: 2px solid #000;
+    z-index: 4;
+}
+
+.favorite svg{
+    font-size: 30px;
+}
+
+.favorite:hover{
+    background-color: #fff;
+}
 
 
+.full svg{
+    color: yellow;
+}
+
+.commands{
+    position: absolute;
+    top: 5px;
+    left: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80px;
+}
+
+.commands button{
+    width: 100%;
+    background-color: aliceblue;
+    border: none;
+    height: 30px;
+    transition: 0.5s;
+}
+
+.commands button:hover{
+    background-color: #fff
+}
+
+.commands button:last-child{
+    border-top: 1px solid #000 ;
+}
+
+.commands button:last-child:hover{
+    background-color: red;
+    color: #fff;
+}

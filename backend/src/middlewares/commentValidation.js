@@ -6,7 +6,7 @@ function validationCreateComment(){
         body('comment')
             .isString()
             .withMessage('Comment is required')
-            .isLength({min:1,max:100})
+            .isLength({min:1,max:210})
             .withMessage('Very long comment'),
         body('assessment')
             .isInt()

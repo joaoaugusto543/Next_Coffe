@@ -2,22 +2,32 @@ import {imgs } from '@/app/api/api'
 import styles from './page.module.css'
 import {BsArrowLeft} from 'react-icons/bs'
 import Link from 'next/link'
-import Comment from '@/components/Comment/Comment'
 import Assessment from '@/components/Assessment/Assessment'
 import { Suspense } from 'react'
 import ProductPageLoader from '@/components/Loaders/ProductPageLoader/ProductPageLoader'
 import { getProduct } from '@/services/productsServices'
 import { getComments } from '@/services/commentsServices'
+import Comments from '@/components/Comments/Comments'
+import { getServerSession } from 'next-auth'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
+import { redirect } from 'next/navigation'
+import { profile } from '@/services/userServices'
 
 export default async function product({params}) {
 
   
   const product=await getProduct(params.product_id)
   const comments=await getComments(params.product_id)
+  const session=await getServerSession(nextAuthOptions)
+  const user=await profile(session.token)
+
+  if(product.error){
+    redirect('/')
+  }
 
   return (
     <section className={styles.productPage}>
-      <Suspense fallback={<ProductPageLoader/>}>
+      {!product.error && <Suspense fallback={<ProductPageLoader/>}>
         <div className={styles.product}>
           <h1>{product.name}</h1>
           <img src={`${imgs}/InvalidImage.png`} srcSet={product.image} alt={product.name} />
@@ -27,10 +37,10 @@ export default async function product({params}) {
         </div>
         <Assessment comments={comments}/>
         <div className={styles.comments}>
-          {comments && comments.map((comment)=><Comment key={comment.id} comment={comment}/>)}
+          <Comments session={session} onComments={comments} idProduct={product.id} user={user}/>
         </div>
         <Link className={styles.back} href='/'><BsArrowLeft/> Voltar</Link>
-      </Suspense>
+      </Suspense>}
     </section>
   )
 }

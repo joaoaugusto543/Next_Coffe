@@ -1,0 +1,114 @@
+.stars{
+    display: flex;
+    margin-bottom: 0.5em;
+}
+
+.fullStar,.emptyStar{
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    padding: 0.2em;
+}
+
+.fullStar{
+    color: yellow;
+}
+
+.emptyStar{
+    color:gray;
+}
+
+.comment{
+    background-color: aliceblue;
+    padding: 2em;
+    margin-bottom: 2em;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1em;
+}
+
+.user p{
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.user img{
+    width: 50px;
+    border-radius: 30px;
+    margin-right: 1em;
+}
+
+.textComment{
+    background-color: transparent;
+    border: none;
+    border-bottom:1px solid #222 ;
+    outline: none;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 40px;
+}
+
+.commentActive{
+    border: none;
+    height: 30px;
+}
+
+.comment form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.buttonEmoji{
+    position: absolute;
+    top: 7px;
+    right: 11px;
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+}
+
+.comment label{
+    width: 100%;
+    position: relative;
+}
+
+.submit{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+
+.submit button{
+    border: none;
+    background-color: rgb(23, 235, 23);
+    transition: 0.5s;
+    margin: 0 auto;
+    padding: 0.7em;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    width: 100px;
+}
+
+.submit button:hover{
+    background-color: rgb(55, 253, 55);
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin-top:1em ;
+}

@@ -1,0 +1,61 @@
+.product{
+    position: relative;
+    width: 100%;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px
+}
+
+.product img{
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.product button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.2em;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    transition: 0.5s;
+    color: #fff;
+}
+
+.product button:hover{
+    color: red;
+}
+
+.product p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product span{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.gif{
+    width: 300px;
+    margin-top: -3em;
+}
+
+.divGif{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.divGif p{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Lora', serif;
+}
+

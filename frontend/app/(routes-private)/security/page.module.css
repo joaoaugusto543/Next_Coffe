@@ -1,0 +1,19 @@
+.security{
+    width: 70%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 2em;
+}
+
+.security h1{
+    font-size: 35px;
+    font-family: 'Lora', serif;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+}

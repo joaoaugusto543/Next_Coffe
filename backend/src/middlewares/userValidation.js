@@ -1,4 +1,5 @@
 const {body}=require('express-validator')
+const {verifyPassword}=require('../services/cryptography')
 
 function validationCreateUser(){
 
@@ -6,7 +7,7 @@ function validationCreateUser(){
         body('name')
             .isString()
             .withMessage('Name is required')
-            .isLength({min:3,max:11})
+            .isLength({min:3,max:16})
             .withMessage('Name too short or too long'),
         body('email')
             .isString()
@@ -49,7 +50,7 @@ function validationUpdateUser(){
             .optional()
             .isString()
             .withMessage('Name is required')
-            .isLength({min:3,max:11})
+            .isLength({min:3,max:16})
             .withMessage('Name too short or too long'),
         body('newPassword')
             .optional()

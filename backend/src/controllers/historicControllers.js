@@ -15,6 +15,7 @@ async function addProduct(req,res){
         const conditionIdProduct=`id = '${idProduct}'`
     
         const product=(await select('products',['id','name','image','discount','price'],conditionIdProduct))[0]
+
     
         if(!product){
             return res.status(200).json({error:'Product not found'})

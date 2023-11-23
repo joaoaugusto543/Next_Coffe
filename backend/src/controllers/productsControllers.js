@@ -144,6 +144,10 @@ async function getProduct(req,res){
         const conditionId=`id = '${id}'`
 
         const product=(await select('products',['id','discount','image','name','price','type','description'],conditionId))[0]
+
+        if(!product){
+            return res.status(500).json({error:'Product not found'})
+        }
    
         return res.status(200).json(product)
 
@@ -170,6 +174,30 @@ async function filterProducts(req,res){
     }
 }
 
+async function removeDiscount(req,res){
+    try {
+        const {id}=req.params
+
+        const conditionId=`id = '${id}'`
+
+        const product=(await select('products',['id'],conditionId))[0]
+
+        if(!product){
+            return res.status(404).json({error:'Product not found'})
+        }
+
+        const set=' discount = null'
+
+        await update('products',set,conditionId)
+
+        return res.status(200).json(product)
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({error:'Internal error'})
+    }
+}
+
 
 const productsControllers={
     createProduct,
@@ -177,7 +205,8 @@ const productsControllers={
     deleteProduct,
     getProduct,
     getProducts,
-    filterProducts
+    filterProducts,
+    removeDiscount
 }
 
 module.exports=productsControllers

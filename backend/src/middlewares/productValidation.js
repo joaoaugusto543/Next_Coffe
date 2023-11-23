@@ -29,7 +29,7 @@ function validationCreateProduct(){
 
                 const priceFloat=parseFloat(value)
 
-                if(priceFloat <=0 || value.indexOf(',') !== -1){
+                if(priceFloat <=0 || value.indexOf(',') !== -1 || !priceFloat){
                     throw new Error('Invalid price') 
                 }
 
@@ -105,7 +105,7 @@ function validationUpdateProduct(){
                 const types=['bebida','doce','salgado']
 
                 if(!types.includes(value)){
-                    throw new Error('Invalid price') 
+                    throw new Error('Invalid type') 
                 }
 
                 return true
@@ -122,7 +122,7 @@ function validationUpdateProduct(){
             .withMessage('Discount is required')
             .custom((value)=>{
 
-                if(value <=0){
+                if(value <=0 || value >= 100 ){
                     throw new Error('Invalid discount') 
                 }
 

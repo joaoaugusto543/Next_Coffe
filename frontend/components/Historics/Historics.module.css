@@ -1,0 +1,19 @@
+.video{
+    height: 500px;
+    width: 500px;
+    margin-top: -2em;
+}
+
+.divVideo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.divVideo p{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Lora', serif;
+}

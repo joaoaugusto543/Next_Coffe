@@ -24,6 +24,8 @@ class App{
     routes(){
         this.server.use(routes)
         this.server.use('/imgs',express.static(path.join(__dirname,'./imgs')))
+        this.server.use('/videos',express.static(path.join(__dirname,'./videos')))
+        this.server.use('/gifs',express.static(path.join(__dirname,'./gifs')))
     }
 
 

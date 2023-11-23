@@ -139,11 +139,11 @@ async function deleteUser(req,res){
             return res.status(401).json({error:'Users cannot delete accounts'})
         }
 
-        await deleteLine('users',conditionId)
-
         const conditionIdUser=`id_user = '${id}'`
 
         await deleteLine('comments',conditionIdUser)
+
+        await deleteLine('users',conditionId)
 
         return res.status(200).json(user)
 
@@ -162,13 +162,16 @@ function profile(req,res){
             return res.status(404).json({error:'User not found'}) 
         }
         
-        const {id,name,image,email}=reqUser
+        const {id,name,image,email,favorites}=reqUser
+
+        const favoritesJson=favorites.map(favorite => JSON.parse(favorite))
 
         const user={
             id,
             name,
             image,
-            email
+            email,
+            favorites:favoritesJson
         }
 
         return res.status(200).json(user)
@@ -191,7 +194,7 @@ async function addToFavorites(req,res){
 
         const conditionIdProduct=`id = '${idProduct}'`
 
-        const product=(await select('products','*',conditionIdProduct))[0]
+        const product=(await select('products',['id'],conditionIdProduct))[0]
 
         if(!product){
             return res.status(404).json({error:'Product not found'})

@@ -5,7 +5,7 @@ import { imgs } from '@/app/api/api'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { useState } from 'react'
 import { AiFillHome } from 'react-icons/ai'
-import { createUser } from '@/services/userServices'
+import { createUser, showErrors } from '@/services/userServices'
 import {useRouter} from 'next/navigation'
 import { signIn } from 'next-auth/react'
 
@@ -18,6 +18,7 @@ function Register() {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [confirmPassword,setConfirmPassword]=useState('')
+  const [errors,setErrors]=useState({})
 
   const router=useRouter()
 
@@ -48,7 +49,11 @@ function Register() {
         confirmPassword
     }
 
-    await createUser(newUser)
+    const resCreate=await createUser(newUser)
+
+    if(resCreate.errors){
+        setErrors(showErrors(resCreate.errors))
+    }
 
     const res=await signIn('credentials',{
         email:newUser.email,
@@ -76,20 +81,24 @@ function Register() {
                 </div>
                 <form className={styles.formRegister} onSubmit={handleSubmit}>
                     <label>
-                        <span>Name:</span>
+                        <span>Nome:</span>
                         <input type='text' placeholder='Digite nome' onChange={(e)=>setName(e.target.value)}/>
+                        {errors.nameError && <p className={styles.error}>{errors.nameError}</p>}
                     </label>
                     <label>
                         <span>E-mail:</span>
                         <input type='email' placeholder='Digite seu e-mail' onChange={(e)=>setEmail(e.target.value)}/>
+                        {errors.emailError && <p className={styles.error}>{errors.emailError}</p>}
                     </label>
                     <label>
                         <span>Senha:</span>
                         <input type='password' placeholder='Digite sua senha' onChange={(e)=>setPassword(e.target.value)}/>
+                        {errors.passwordError && <p className={styles.error}>{errors.passwordError}</p>}
                     </label>
                     <label>
                         <span>Confirme sua senha:</span>
                         <input type='password' placeholder='Digite sua senha' onChange={(e)=>setConfirmPassword(e.target.value)}/>
+                        {errors.confirmPasswordError && <p className={styles.error}>{errors.confirmPasswordError}</p>}
                     </label>
                     <input type='submit' value='Cadastrar' />
                 </form>

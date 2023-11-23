@@ -10,6 +10,7 @@ export default function Login() {
 
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
+  const [error,setError]=useState('')
 
   const router=useRouter()
 
@@ -23,6 +24,8 @@ export default function Login() {
     })
 
     if(res.error){
+      setError('Falha no login')
+      //setTimeout(()=>setError(''),3000)
       return null
     }
 
@@ -35,6 +38,7 @@ export default function Login() {
         <div className={styles.boxLogin}>
             <div className={styles.divForm}>
                 <h1>Login</h1>
+                {error && <p className={styles.error}>{error}</p>}
                 <form onSubmit={handleSubmit} className={styles.formLogin}>
                     <label>
                         <span>E-mail:</span>
@@ -53,4 +57,5 @@ export default function Login() {
     </section>
   )
 }
+
 

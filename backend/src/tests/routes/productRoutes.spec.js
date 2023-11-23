@@ -3,6 +3,7 @@ const app=require('../../app')
 const { select, insert, deleteLine } = require('../../config/db')
 const { encryptPassword } = require('../../services/cryptography')
 const { v4: uuidv4 } = require('uuid')
+const { deleteProduct } = require('../../controllers/productsControllers')
 const baseUrl='/api/products'
 
 describe('ProductRoutes',()=>{
@@ -168,10 +169,6 @@ describe('ProductRoutes',()=>{
 
         const token=await login(email,'1234567')
 
-        const update={
-            image:'https://images.unsplash.com/photo-1683009427660-b38dea9e8488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
-        }
-
         const res=await request(app).put(`${baseUrl}/387346432`).set('Authorization',token)
 
         const {error}=res.body
@@ -256,5 +253,45 @@ describe('ProductRoutes',()=>{
         await deleteProduct(id)
 
         expect(manyDifferent).toHaveLength(0)
+    })
+    it('RemoveDiscount',async ()=>{
+    
+        const {email,id:idUser}=await createUser('Admin_vwaddhvkj@gmail.com',true)
+    
+        const token=await login(email,'1234567')
+    
+        const {id}=await createProduct()
+    
+        const update={
+            discount:10
+        }
+    
+        await request(app).put(`${baseUrl}/${id}`).send(update).set('Authorization',token)
+  
+        await request(app).put(`${baseUrl}/discount/${id}`).set('Authorization',token)
+
+        const conditionId=`id = '${id}'`
+    
+        const product=(await select('products',['name','id','discount'],conditionId))[0]
+    
+        await deleteUser(idUser)
+        await deleteProduct(product.id)
+    
+        expect(product.discount).toBeNull()
+    })
+    
+    it('Product not found / removeDiscount',async ()=>{
+    
+        const {email,id:idUser}=await createUser('Admin_vwaddhvkj@gmail.com',true)
+    
+        const token=await login(email,'1234567')
+    
+        const res=await request(app).put(`${baseUrl}/discount/46723465342`).set('Authorization',token)
+    
+        await deleteUser(idUser)
+    
+        const {error}=res.body
+
+        expect(error).toBe('Product not found')
     })
 })

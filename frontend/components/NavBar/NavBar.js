@@ -1,39 +1,57 @@
+'use client'
 import { imgs } from '@/app/api/api'
 import styles from './NavBar.module.css'
 import Link from 'next/link'
-import { getServerSession } from 'next-auth'
-import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 import ButtonLogout from '../ButtonLogout/ButtonLogout'
+import { CiMenuBurger } from 'react-icons/ci'
+import { useState } from 'react'
 
-async function NavBar() {
+async function NavBar({user,session}) {
 
-    const session=await getServerSession(nextAuthOptions)
+    const [navBar,setNavBar]=useState('close')
 
+    function closeNavBar(){
+        setNavBar('close')
+    }
+
+    function openNavBar(){
+        setNavBar('open')
+    }
+    
   return (
-    <nav className={styles.nav}>
-        <div className={styles.content}>
-            <h1 className={styles.title}>Next<span>Coffee</span></h1>
-            <ul className={styles.navLinks}>
-                <li><Link href='/'>Home</Link></li>
-                <li><Link href='/about'>Sobre</Link></li>
-                <li><Link href='/contact'>Contato</Link></li>
-                {session && (
-                    <>
-                        <li><Link href='/'>Favoritos</Link></li>
-                        <li><Link href='/'>Histórico</Link></li>
-                        <li><Link href='/'>Segurança</Link></li>
-                    </>
-                )}
-            </ul>
-            {!session && <Link className={styles.toEnter} href='/login'><img src={`${imgs}/anonimo.png`} alt='anônimo' />Entrar</Link>}
-            {session && 
-                <div className={styles.navBarAuth}>
-                    <Link href='/profile' className={styles.linkProfile}><img src={`${imgs}/${session.user.image}`} alt={session.user.image} />{session.user.name}</Link>
-                    <ButtonLogout/>
-                </div>
-            }
-        </div>
-    </nav>
+    <>
+        {navBar !== 'open' ? <button onClick={openNavBar} className={styles.buttonNavBar}><CiMenuBurger/></button> : <button onClick={closeNavBar} className={styles.buttonNavBar}><CiMenuBurger/></button>}
+        <nav className={styles.nav}>
+            <div className={styles.content}>
+                <h1 className={styles.title}>Next<span>Coffee</span></h1>
+                <ul className={styles.navLinks}>
+                    <li><Link href='/'>Home</Link></li>
+                    <li><Link href='/about'>Sobre</Link></li>
+                    <li><Link href='/contact'>Contato</Link></li>
+                    {user &&
+                        <>
+                            <li><Link href='/favorites'>Favoritos</Link></li>
+                            <li><Link href='/historics'>Histórico</Link></li>
+                            <li><Link href='/security'>Segurança</Link></li>
+                        </>
+                    }
+                    {session?.user.admin && 
+                        <>
+                            <li><Link href='/create-admin'>Criar admin</Link></li>
+                            <li><Link href='/create-product'>Criar produto</Link></li>
+                        </>
+                    }
+                </ul>
+                {!user && <Link className={styles.toEnter} href='/login'><img src={`${imgs}/anonimo.png`} alt='anônimo' />Entrar</Link>}
+                {user && 
+                    <div className={styles.navBarAuth}>
+                        <Link href='/profile' className={styles.linkProfile}><img src={`${imgs}/${user.image}`} alt={user.image} />{user.name}</Link>
+                        <ButtonLogout/>
+                    </div>
+                }
+            </div>
+        </nav>
+    </>
   )
 }
 
