@@ -1,6 +1,6 @@
 # Next_Coffe
 
-![nextcooffee](https://github.com/joaoaugusto543/Next_Coffe/assets/119535029/99c63af4-9211-4738-b353-46dac78fc149)
+![nextcooffee](https://github.com/joaoaugusto543/Next_Coffe/assets/119535029/4d67ae68-ebcf-4bc9-a9b6-51edcc8b3e6f)
 
 Next Cooffee é um e-commerce de cafeteria onde tem a parte pública, usuário e admin , o Front-end foi desenvolvido com NextJs, Back-end com NodeJs e Banco de dados com Postgress
 
