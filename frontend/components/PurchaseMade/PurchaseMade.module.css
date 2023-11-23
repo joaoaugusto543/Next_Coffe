@@ -1,0 +1,68 @@
+
+.purchaseMade{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    flex-direction: column;
+    z-index: 99;
+}
+
+.purchaseMade button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    margin: 1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchaseMade button > svg{
+    margin-right: 0.5em;
+}
+
+.video{
+    position: absolute;
+    z-index: 2;
+    height: 500px;
+    width: 500px;
+}
+
+.content h1{
+    position: absolute;
+    transform: translateY(230px);
+    z-index: 3;
+    color: green;
+    animation: ok 0.8s cubic-bezier(0,1.13,1,.99) normal;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+@keyframes ok{
+    from{
+        transform: translateY(170px);
+    }
+
+    to{
+        transform: translateY(230px);
+    }
+
+}

@@ -1,0 +1,77 @@
+.contact{
+    width: 70%;
+    max-height: 100vh;
+    height: 100vh;
+    padding: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.contact h1{
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 1em;
+}
+
+.contact form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+}
+
+.contact label{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5em;
+}
+
+.contact input[type='text'],.contact input[type='email'],.contact textarea{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.contact input[type='text'],.contact input[type='email']{
+    height: 50px;
+}
+
+.contact textarea{
+    height: 150px;
+}
+
+.contact label > span{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contact label > textarea{
+    margin-top: 1em;
+}
+
+.contact input[type='submit']{
+    height: 40px;
+    width: 120px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(23, 235, 23);
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+    margin-top: 1em;
+    font-size: 16px;
+}
+
+.contact input[type='submit']:hover{
+    background-color: rgb(55, 253, 55);
+}

@@ -1,0 +1,76 @@
+.securityForm{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+}
+
+.securityForm label{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.securityForm label > span{
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.securityForm input[type='email'],.securityForm input[type='password'],.securityForm input[type='text']{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    outline: none;
+    color: #000;
+    padding: 0.5em;
+    padding-left: 0;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.securityForm input[type='email']::placeholder,.securityForm input[type='password']::placeholder,.securityForm input[type='text']::placeholder{
+    color: #000
+}
+
+.securityForm input[type='submit']{
+    margin: 0 auto;
+    width: 120px;
+    background-color: rgb(26, 206, 26);
+    height: 40px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 1em;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    transition: .5s;
+}
+
+.securityForm input[type='submit']:hover{
+    background-color: rgb(45, 194, 45);
+}
+
+.error{
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1em;
+    margin-top: -1em;
+}
+
+.success{
+    font-size: 20px;
+    color: rgb(7, 209, 7);
+    font-weight: bold;
+    margin-bottom: 1em;
+    margin-top: -1em;
+}

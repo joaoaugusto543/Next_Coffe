@@ -1,0 +1,18 @@
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 70%;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 2em;
+}
+
+.profile h1{
+    font-size: 35px;
+    font-family: 'Lora', serif;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+}

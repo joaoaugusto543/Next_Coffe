@@ -1,0 +1,22 @@
+.favoritesPage{
+    width: 70%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.favoritesPage h1{
+    width: 100%;
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-size: 40px;
+    margin: 1em 0;
+}
+
+.favorites{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 2em;
+}

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=dev && nodemon ./src/server.js"
+    "dev": "set NODE_ENV=dev && nodemon ./src/server.js",
+    "test": "set NODE_ENV=test && jest --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",

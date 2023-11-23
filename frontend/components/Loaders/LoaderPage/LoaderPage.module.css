@@ -1,0 +1,23 @@
+.loader{
+    width: 70%;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader > div{
+    height: 300px;
+    width: 300px;
+    border: 8px solid #000;
+    border-top-color: transparent;
+    animation: rotate 1s ease infinite;
+    border-radius: 200px;
+}
+
+@keyframes rotate{
+    to{
+        transform: rotate(360deg);
+    }
+}

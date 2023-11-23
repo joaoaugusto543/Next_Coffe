@@ -1,0 +1,198 @@
+.divProduct{
+    position: relative;
+}
+
+.linkProduct{
+    text-decoration: none;
+    color: #000;
+}
+
+.product{
+    position: relative;
+    width: 400px;
+    height: 700px;
+    margin-bottom: 3em;
+    border: 3px solid #e6e6e6;
+    border-radius: 30px;
+    margin-left: 3em;
+    cursor: pointer;
+}
+  
+.threePoints{
+    position: absolute;
+    top: 14px;
+    left: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    padding: 0.5em;
+}
+  
+.product img{
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+    border-radius: 30px 30px 0px 0px;
+    margin-bottom: 2em;
+}
+  
+.product h2{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+  
+.price,.discount{
+    margin-top: 1em;
+    margin-left: 1em;
+    font-size: 25px;
+    font-weight: bold;
+}
+  
+.priceDiscount{
+    text-decoration: line-through;
+    margin-top: 0.2em;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 1.2em;
+}
+  
+.product span{
+    font-weight: bold;
+}
+  
+.percentage{
+    font-weight: normal;
+    font-style: italic;
+    font-size: 14px;
+}
+  
+.buy{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 40px;
+}
+  
+.buy input[type='submit']{
+    height: 40px;
+    width: 120px;
+    background-color: rgb(31, 31, 250);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    transition: 0.5s;
+
+}
+
+.buy input[type='submit']:hover{
+    background-color: rgb(0, 0, 248);
+}
+  
+.buy input[type='number']{
+    height: 40px;
+    width: 30px;
+    text-align: center;
+    outline: none;
+    color: #000;
+    border: 1px solid #000;
+    border-left:none ;
+    border-right:none ;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    border-bottom: 1px solid #000;
+    height: 20px;
+    background-color: rgb(31, 31, 250);
+    color: #fff;
+    transition: .5s;
+}
+
+.buttons button:hover{
+    background-color: rgb(0, 0, 248);
+}
+
+.buttons button:last-child{
+    border-top:none ;
+    border-bottom: 1px solid #000;
+    
+}
+
+.favorite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    margin: 0.5em;
+    padding: 0.8em;
+    border-radius: 30px;
+    background-color: #fff;
+    border: 2px solid #000;
+    z-index: 4;
+}
+
+.favorite svg{
+    font-size: 30px;
+}
+
+.favorite:hover{
+    background-color: #fff;
+}
+
+
+.full svg{
+    color: yellow;
+}
+
+.commands{
+    position: absolute;
+    top: 5px;
+    left: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80px;
+}
+
+.commands button{
+    width: 100%;
+    background-color: aliceblue;
+    border: none;
+    height: 30px;
+    transition: 0.5s;
+}
+
+.commands button:hover{
+    background-color: #fff
+}
+
+.commands button:last-child{
+    border-top: 1px solid #000 ;
+}
+
+.commands button:last-child:hover{
+    background-color: red;
+    color: #fff;
+}

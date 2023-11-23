@@ -1,0 +1,111 @@
+.imgs{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.imgs img{
+    width: 120px;
+    border-radius: 70px;
+    margin: 0 auto;
+}
+
+.imgs button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+}
+
+.imgs svg{
+    font-size: 40px;
+    color: #000;
+}
+
+.left{
+    left: 0;
+}
+
+.right{
+    right: 0;
+}
+
+
+.formProfile{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+}
+
+.formProfile label{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.formProfile label > span{
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formProfile input[type='email'],.formProfile input[type='password'],.formProfile input[type='text']{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    outline: none;
+    color: #000;
+    padding: 0.5em;
+    padding-left: 0;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formProfile input[type='email']::placeholder,.formProfile input[type='password']::placeholder,.formProfile input[type='text']::placeholder{
+    color: #000
+}
+
+.formProfile input[type='submit']{
+    margin: 0 auto;
+    width: 120px;
+    background-color: rgb(26, 206, 26);
+    height: 40px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 1em;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    transition: .5s;
+}
+
+.formProfile input[type='submit']:hover{
+    background-color: rgb(45, 194, 45);
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    margin-top: 0.5em;
+    font-size: 16px;
+}
+
+.success{
+    font-size: 20px;
+    color: rgb(7, 209, 7);
+    font-weight: bold;
+    margin-bottom: 1em;
+    margin-top: -1em;
+}

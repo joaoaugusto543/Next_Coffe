@@ -1,0 +1,83 @@
+.productPage{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+    flex-direction: column;
+    max-height: 100vh;
+    height: 100vh;
+    padding: 3em;
+    overflow-y: scroll;
+}
+
+.product{
+    width: 60%;
+}
+
+.product h1{
+    margin-bottom: 1em;
+    font-size: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.price,.discount{
+    margin-top: 1em;
+    font-size: 30px;
+}
+
+.priceDiscount{
+    text-decoration: line-through;
+    margin-top: 0.2em;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.percentage{
+    font-weight: normal;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.product p{
+    font-size: 20px;
+    margin-top: 1em;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+}
+
+.product img{
+    object-fit: cover;
+    height: 600px;
+    width: 100%;
+}
+
+.informations{
+    width: 100%;
+}
+
+.back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top:1em ;
+    margin-left: 1em;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.back svg{
+    margin-right: 0.2em;
+}
+
+.comments{
+    width: 60%;
+    margin-top: 3em;
+}

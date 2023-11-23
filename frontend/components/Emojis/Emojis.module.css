@@ -1,0 +1,58 @@
+.emojis{
+    height: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+    background-color: aliceblue;
+}
+
+.emojis::-webkit-scrollbar {
+    width: 6px;
+}
+
+.emojis::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+  
+.emojis::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: rgb(201, 201, 201);
+}
+
+.boxEmojis{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.boxEmojis button{
+    border: none;
+    width: 10%;
+    font-size: 18px;
+    margin: 0.1em;
+    background-color: transparent;
+}
+
+.types{
+    width: 100%;
+    border-bottom:2px solid #000 ;
+    margin-bottom: 1em;
+}
+
+.type{
+    border: none;
+    width: 10%;
+    font-size: 20px;
+    background-color: transparent;
+    
+}
+
+.type > svg{
+    color: gray;
+}
+
+.active svg{
+    color: #000;
+}
