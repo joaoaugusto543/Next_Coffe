@@ -47,3 +47,40 @@
     border-radius: 20px;
     transition: 0.5s;
 }
+
+@media(max-width:1100px){
+    .assessment{
+        width: 100%;
+    }
+}
+
+@media(max-width:533px){
+    .assessment{
+        flex-direction: column;
+        padding: 1em 0.2em;
+        
+    }
+
+    .total{
+        width: 100%;
+        margin-bottom: 2em;
+    }
+
+    .total h1{
+        font-size: 25px;
+    }
+
+    .total p{
+        font-size: 16px;
+    }
+
+    .starPercentagem{
+        width: 100%;
+    }
+
+    .starsPercentage{
+        width: 80%;
+    }
+
+    
+}

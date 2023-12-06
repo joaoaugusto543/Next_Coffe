@@ -1,4 +1,3 @@
-
 .purchaseMade{
     position: fixed;
     top: 0;
@@ -10,7 +9,7 @@
     justify-content: center;
     background-color: #fff;
     flex-direction: column;
-    z-index: 99;
+    z-index: 300;
 }
 
 .purchaseMade button{
@@ -56,13 +55,69 @@
     height: 600px;
 }
 
+
 @keyframes ok{
     from{
         transform: translateY(170px);
     }
-
+    
     to{
         transform: translateY(230px);
     }
+    
+}
 
+@keyframes okTwo{
+    from{
+        transform: translateY(72px);
+    }
+
+    to{
+        transform: translateY(132px);
+    }
+
+}
+
+@keyframes okThree{
+    from{
+        transform: translateY(48px);
+    }
+
+    to{
+        transform: translateY(108px);
+    }
+
+}
+
+@media(max-width:800px){
+
+    .video{
+        height: 300px;
+        width: 300px;
+    }
+    
+    .content h1{
+       font-size: 20px;
+       animation: okTwo 0.8s cubic-bezier(0,1.13,1,.99) normal;
+       transform: translateY(132px);
+    }
+    
+}
+
+@media(max-width:400px){
+    .video{
+        height: 250px;
+        width: 250px;
+    }
+    
+    .content h1{
+       font-size: 18px;
+       animation: okThree 0.8s cubic-bezier(0,1.13,1,.99) normal;
+       transform: translateY(108px);
+    }
+
+    .purchaseMade button{
+        font-size: 18px;
+    }
+    
 }

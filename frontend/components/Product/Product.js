@@ -11,13 +11,11 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import Warning from '../Warning/Warning'
 import { deleteProduct } from '@/services/productsServices'
 
-function Product({onProduct,session,user}) {
+function Product({onProduct,session,user,wait,setWait}) {
 
     const [amount,setAmount]=useState(1)
 
     const [favorites,setFavorites]=useState(user?.favorites ? user.favorites : [])
-
-    const [loader,setLoader]=useState(false)
 
     const [showCommands,setShowCommands]=useState(false)
 
@@ -75,7 +73,7 @@ function Product({onProduct,session,user}) {
             return
         }
 
-        setLoader(true)
+        setWait(true)
 
         await addProduct(session.token,product.id,amount)
 
@@ -83,7 +81,7 @@ function Product({onProduct,session,user}) {
 
         router.refresh()
 
-        setLoader(false)
+        setWait(false)
     }
 
     function redirect(e){
@@ -131,7 +129,7 @@ function Product({onProduct,session,user}) {
                 {product.discount && <p id='link' className={styles.discount}>R$ {parseFloat(product.price - (product.price*(product.discount/100))).toFixed(2).replace('.',',')} <span className={styles.percentage}>{product.discount}%</span></p>}
                 <p id='link' className={!product.discount ? styles.price : `${styles.price} ${styles.priceDiscount}`}>R$ {product.price.replace('.',',')}</p>
                 <form className={styles.buy} onSubmit={handleSubmit}>
-                    {!loader ? <input type='submit' value='Comprar' /> : <input type='submit' disabled value='Aguarde...' />}
+                    {!wait ? <input type='submit' value='Comprar' /> : <input type='submit' disabled value='Aguarde...' />}
                     <input type='number' disabled min={1} value={amount} />
                     <div className={styles.buttons}>
                         <button onClick={increaseAmount}><IoMdArrowDropup/></button>

@@ -22,6 +22,7 @@
     border-radius: 30px;
     color: #fff;
     padding: 1em;
+    box-shadow: 6px 9px 30px 10px #000;
 }
 
 .boxWarning p{
@@ -49,4 +50,34 @@
 
 .buttons button:last-child:hover{
     background-color: red;
+}
+
+@media(max-width:700px){
+    .boxWarning{
+        height: 250px;
+        width: 350px;
+    }
+
+    .boxWarning p{
+        font-size: 12px;
+    }
+
+    .buttons button{
+        width: 80px;
+        height: 25px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:500px){
+    .boxWarning{
+        height: 200px;
+        width: 250px;
+    }
+
+    .buttons button{
+        width: 60px;
+        height: 20px;
+        font-size: 11px;
+    }
 }

@@ -1,29 +1,21 @@
-'use client'
 import { imgs } from '@/app/api/api'
 import styles from './NavBar.module.css'
 import Link from 'next/link'
 import ButtonLogout from '../ButtonLogout/ButtonLogout'
 import { CiMenuBurger } from 'react-icons/ci'
-import { useState } from 'react'
+
 
 async function NavBar({user,session}) {
 
-    const [navBar,setNavBar]=useState('close')
-
-    function closeNavBar(){
-        setNavBar('close')
-    }
-
-    function openNavBar(){
-        setNavBar('open')
-    }
-    
   return (
     <>
-        {navBar !== 'open' ? <button onClick={openNavBar} className={styles.buttonNavBar}><CiMenuBurger/></button> : <button onClick={closeNavBar} className={styles.buttonNavBar}><CiMenuBurger/></button>}
+        <label htmlFor='buttonNav' className={styles.buttonNavBar}>
+            <CiMenuBurger/>
+        </label>
+        <input className={styles.check} id='buttonNav' type='checkbox' />
         <nav className={styles.nav}>
             <div className={styles.content}>
-                <h1 className={styles.title}>Next<span>Coffee</span></h1>
+                <Link href='/' className={styles.title}><h1>Next<span>Coffee</span></h1></Link>
                 <ul className={styles.navLinks}>
                     <li><Link href='/'>Home</Link></li>
                     <li><Link href='/about'>Sobre</Link></li>

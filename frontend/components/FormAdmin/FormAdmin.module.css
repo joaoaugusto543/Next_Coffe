@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     width: 30%;
+    margin-bottom: 2em;
 }
 
 .imgs img{
@@ -89,6 +90,7 @@
     font-weight: bold;
     font-size: 16px;
     transition: .5s;
+    margin-bottom: 2em;
 }
 
 .formAdmin input[type='submit']:hover{
@@ -99,4 +101,87 @@
     color: red;
     margin-top: 0.3em;
     font-weight: bold;
+}
+
+.success{
+    font-size: 20px;
+    color: rgb(7, 209, 7);
+    font-weight: bold;
+    margin-bottom: 1em;
+    margin-top: -1em;
+}
+
+@media(max-width:800px){
+    .imgs{
+        width: 40%;
+    }
+}
+
+@media(max-width:600px){
+    .imgs{
+        width: 60%;
+    }
+
+    .imgs img{
+        width: 100px;
+    }
+
+    
+    .imgs svg{
+        font-size: 30px;
+    }
+
+    .formAdmin label > span{
+        font-size: 16px;
+    }
+
+    .formAdmin input[type='email'],.formAdmin input[type='password'],.formAdmin input[type='text']{
+        font-size: 14px;
+    }
+
+    .formAdmin input[type='submit']{
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .error{
+        font-size: 12px;
+    }
+
+    .success{
+        font-size: 14px;
+    }
+    
+}
+
+@media(max-width:500px){
+    .formAdmin{
+        width: 100%;
+    }
+}
+
+@media(max-width:420px){
+    .imgs{
+        width: 90%;
+    }
+
+    .imgs svg{
+        font-size: 25px;
+    }
+}
+
+@media(max-width:330px){
+    .imgs img{
+        width: 80px;
+    }
+
+    .imgs{
+        width: 80%;
+    }
+
+    .formAdmin label > span{
+        font-size: 16px;
+    }
+
 }

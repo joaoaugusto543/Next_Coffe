@@ -17,3 +17,32 @@
     font-weight: bold;
     font-family: 'Lora', serif;
 }
+
+@media(max-width:800px){
+    .video{
+      height: 300px;
+      width: 300px;
+    }
+      
+    .divVideo p{
+        font-size: 18px;
+    }
+    
+  }
+
+@media(max-width:600px){
+    .divVideo{
+        margin-top: 1em;
+    }
+}
+  
+@media(max-width:400px){
+    .video{
+      height: 250px;
+      width: 250px;
+    }
+      
+    .divVideo p{
+        font-size: 14px;
+    }
+}

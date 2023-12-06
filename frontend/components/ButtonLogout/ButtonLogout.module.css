@@ -22,3 +22,13 @@
 .logout:hover{
     background-color: rgb(255, 255, 255,0.2)
 }
+
+@media (max-width:670px){
+    .logout{
+        font-size: 20px;
+    }
+
+    .logout svg{
+        margin-right: 0.2em;
+    }
+}

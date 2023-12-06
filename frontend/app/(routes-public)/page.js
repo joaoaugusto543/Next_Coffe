@@ -4,8 +4,15 @@ import ProductsLoader from '@/components/Loaders/ProductsLoader/ProductsLoader'
 import { Suspense } from 'react'
 import Products from '@/components/Products/Products'
 import Link from 'next/link'
+import { getServerSession } from 'next-auth'
+import { profile } from '@/services/userServices'
+import { nextAuthOptions } from '../api/auth/[...nextauth]/route'
 
-export default function Page() {
+export default async function Page() {
+
+  const session=await getServerSession(nextAuthOptions)
+
+  const user=await profile(session?.token)
   
   return (
     <>
@@ -22,7 +29,7 @@ export default function Page() {
         </div>
         <div className={styles.products}>
           <Suspense fallback={<ProductsLoader/>}>
-            <Products/>
+            <Products session={session} user={user}/>
           </Suspense>
         </div>
       </section>

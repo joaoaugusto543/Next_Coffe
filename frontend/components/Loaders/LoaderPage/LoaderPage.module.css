@@ -1,5 +1,5 @@
 .loader{
-    width: 70%;
+    width: 100%;
     height: 100vh;
     max-height: 100vh;
     display: flex;
@@ -19,5 +19,35 @@
 @keyframes rotate{
     to{
         transform: rotate(360deg);
+    }
+}
+
+@media(max-width:900px){
+    .loader > div{
+        height: 250px;
+        width: 250px;
+    }
+}
+
+@media(max-width:700px){
+    .loader > div{
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@media(max-width:500px){
+    .loader > div{
+        height: 130px;
+        width: 130px;
+    }
+}
+
+@media(max-width:300px){
+    .loader > div{
+        height: 100px;
+        width: 100px;
+        border: 6px solid #000;
+        border-top-color:transparent ;
     }
 }

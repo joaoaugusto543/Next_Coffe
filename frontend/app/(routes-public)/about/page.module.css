@@ -22,3 +22,25 @@
     font-family: 'Roboto', sans-serif;
     text-align: justify;
 }
+
+@media(max-width:1100px){
+    .about{
+        width: 100%;
+    }
+}
+
+@media(max-width:540px){
+
+    .content p{
+        font-size: 20px;
+    }
+
+    .content{
+        width: 90%;
+    }
+
+    .image{
+        width: 200px;
+    }
+
+}

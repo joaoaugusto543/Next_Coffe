@@ -32,7 +32,7 @@ export default async function product({params}) {
           <h1>{product.name}</h1>
           <img src={`${imgs}/InvalidImage.png`} srcSet={product.image} alt={product.name} />
           {product.discount && <h2 className={styles.discount}>R$ {parseFloat(product.price - (product.price*(product.discount/100))).toFixed(2).replace('.',',')} <span className={styles.percentage}>{product.discount}%</span></h2>}
-          <h2 className={!product.discount ? styles.price : `${styles.price} ${styles.priceDiscount}`}>R$ {product.price.replace('.',',')}</h2>
+          <h2 className={!product.discount ? styles.price : `${styles.price} ${styles.priceDiscount}`}>R$ {parseFloat(product.price).toFixed(2).replace('.',',')}</h2>
           <p>{product.description}</p>
         </div>
         <Assessment comments={comments}/>

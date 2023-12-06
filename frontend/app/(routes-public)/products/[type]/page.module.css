@@ -112,3 +112,66 @@
     flex-wrap: wrap;
     padding: 0 2em;
   }
+
+  @keyframes coffeeMobile{
+    25%{
+      font-size: 180px;
+    }
+  
+    40%{
+      transform: rotate(-20deg);
+    }
+  
+    45%{
+      transform: rotate(20deg);
+    }
+  
+    80%{
+      transform: rotate(0deg);
+    }
+  
+    100%{
+      font-size: 55px;
+    }
+  }
+
+  @media(max-width:1100px){
+    .productsType{
+      width: 100%;
+    }
+  }
+
+  @media(max-width:1371px){
+    .types{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .products{
+      padding: 0 1em;
+      justify-content: center;
+    }
+  }
+
+  @media(max-width:510px){
+
+    .type{  
+      width: 80px;
+      font-size: 14px;
+    }
+
+    .banner svg{
+      animation: coffeeMobile 1.5s infinite linear;
+    }
+
+  }
+
+  @media (max-width:324px){
+
+    .type{
+        margin-left: 0em;
+        width: 70px;
+        font-size: 12px;
+    }
+}

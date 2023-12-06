@@ -126,7 +126,7 @@ export function showErrors(error){
   }
 
   if(error.includes('Price is required') || error.includes('Invalid price')){
-    errors.priceError='preço inválida'
+    errors.priceError='Preço inválida'
   }
 
   if(error.includes('Image is required') || error.includes('Invalid image')){

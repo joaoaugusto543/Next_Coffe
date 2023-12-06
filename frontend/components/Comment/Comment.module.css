@@ -88,3 +88,44 @@
     background-color: red;
     color: #fff;
 }
+
+@media(max-width:1100px){
+    .threePoints{
+        right: 4px;
+        font-size: 18px;
+        transform: rotate(90deg);
+    }
+
+    .configComment{
+        top: -42px;
+        right: 11px;
+    }
+}
+
+@media(max-width:600px){
+    .user p{
+        font-size: 16px;
+    }
+    
+    .comment img{
+        width: 45px;
+    }
+
+    .textComment{
+        font-size: 14px;
+    }
+
+    .configComment button:last-child{
+        border-top:1px solid #000 ;
+    }
+
+    .configComment{
+        width: 120px;
+        
+    }
+
+    .configComment button{
+        font-size: 12px;
+    }
+
+}

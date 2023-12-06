@@ -10,6 +10,7 @@
     height: 300px;
     width: 300px;
     object-fit: cover;
+    margin-bottom: 2em;
 }
 
 .formProduct label{
@@ -89,21 +90,66 @@
     font-weight: bold;
 }
 
-.back{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top:1em ;
-    margin-left: 1em;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+.success{
     font-size: 20px;
+    color: rgb(7, 209, 7);
+    font-weight: bold;
+    margin-bottom: 1em;
+    margin-top: -1em;
 }
 
-.back svg{
-    margin-right: 0.2em;
+@media(max-width:800px){
+
+    .imageProduct{
+        height: 250px;
+        width: 250px;
+    }
+
+    .formProduct label > span{
+        font-size: 18px;
+    }
+
+    .formProduct input[type='text'], .formProduct input[type='number'] , .formProduct select , .formProduct textarea{
+        border-bottom:1px solid #000 ;
+        font-size: 14px;
+    }
+
+    .formProduct input[type='submit']{
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .removeDiscount{
+        height: 30px;
+        width: 130px;
+        font-size: 12px;
+    }
+    
+    .success{
+        font-size: 14px;
+    }
+}
+
+@media(max-width:600px){
+    .formProduct{
+        width: 100%;
+    }
+
+    .formProduct label > span{
+        font-size: 16px;
+    }
+}
+
+@media(max-width:400px){
+    .removeDiscount{
+        height: 25px;
+        width: 111px;
+        font-size: 11px;
+    }
+
+    .imageProduct{
+        height: 200px;
+        width: 200px;
+    }
 }

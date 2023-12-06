@@ -1,4 +1,4 @@
-.historicLoader{
+.historicProductLoader{
     margin-bottom: 2em;
     background-color: aliceblue;
     padding: 1em;
@@ -7,6 +7,18 @@
     justify-content: space-between;
     cursor: pointer;
     height: 170px;
+    animation: blink 2s infinite linear;
+    margin: 0 1em;
+}
+
+.title{
+    height: 30px;
+    width: 70%;
+    background-color: rgb(180, 180, 180);
+    margin: 0 auto;
+    margin-top: 5em;
+    margin-bottom: 3em;
+    border-radius: 30px;
     animation: blink 2s infinite linear;
 }
 
@@ -17,22 +29,12 @@
 }
 
 .nameLoader{
-    width: 450px;
+    width: 250px;
     height: 20px;
     background-color: rgb(180, 180, 180);
     border-radius: 20px;
 }
 
-.buttonLoader{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 50px;
-    margin-right: 1em;
-    border-radius: 10px;
-    font-size: 25px;
-}
 
 @keyframes blink{
     25%{
@@ -52,58 +54,58 @@
     }
 }
 
-@media(max-width:1185px){
-    .nameLoader{
-        width: 350px;
-    }
-}
+@media(max-width:1172px){
 
-@media(max-width:733px){
-    
-    .imgLoader{
-        height: 130px;
-        width: 170px;
+    .historicProductLoader{
+        padding: 0,5em;
     }
-    
-    .nameLoader{
-        width: 250px;
-    }
-    
-    .buttonLoader{
-        height: 40px;
-        width: 40px;
-        font-size: 20px;
-    }
-}
 
-@media(max-width:600px){
+    .title{
+        height: 25px;
+        width: 50%;
+    }
+    
     .imgLoader{
         height: 100px;
         width: 150px;
     }
     
     .nameLoader{
-        width: 150px;
+        width: 200px;
+        height: 20px;
     }
     
-    .buttonLoader{
-        height: 30px;
-        width: 30px;
-    }
 }
 
-@media(max-width:513px){
-    .historicLoader{
-        flex-direction: column;
-        height: 300px;
+@media(max-width:700px){
+    .nameLoader{
+        width: 150px;
     }
 
     .imgLoader{
-        height: 150px;
-        width: 200px;
+        height: 100px;
+        width: 150px;
+    }
+}
+
+@media(max-width:568px){
+    .nameLoader{
+        width: 90px;
+    }
+
+    .imgLoader{
+        width: 110px;
+    }
+}
+
+@media(max-width:402px){
+    .historicProductLoader{
+        flex-direction: column;
+        height: 250px;
     }
 
     .nameLoader{
+        width: 120px;
         margin: 1em 0;
     }
 }

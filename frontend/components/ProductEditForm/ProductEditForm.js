@@ -3,8 +3,6 @@ import { useState } from 'react'
 import styles from './ProductEditForm.module.css'
 import { removeDiscount, showErrors, updateProduct } from '@/services/productsServices'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import { BsArrowLeft } from 'react-icons/bs'
 
 function ProductEditForm({product,session}) {
 
@@ -16,6 +14,7 @@ function ProductEditForm({product,session}) {
     const [discount,setDiscount]=useState(product.discount)
     const [loader,setLoader]=useState(false)
     const [errors,setErrors]=useState({})
+    const [success,setSuccess]=useState('')
     const router=useRouter()
 
     function handlePrice(e){
@@ -145,8 +144,6 @@ function ProductEditForm({product,session}) {
           editedProduct.discount=discount
         }
 
-        console.log(discount)
-
         if(!discount && product.discount){
           setErrors({...errors,discountError:'Desconto inválido'})
         }
@@ -165,6 +162,13 @@ function ProductEditForm({product,session}) {
         }
 
         setLoader(false)
+        setErrors({})
+
+        setSuccess('Produto editado')
+
+        setTimeout(()=>{
+          setSuccess('')
+        },3000)
 
         router.refresh()
         
@@ -182,6 +186,12 @@ function ProductEditForm({product,session}) {
         setLoader(false)
         setErrors({...errors,discountError:''})
 
+        setSuccess('Disconto removido')
+
+        setTimeout(()=>{
+          setSuccess('')
+        },3000)
+
         router.refresh()
 
         return
@@ -190,6 +200,7 @@ function ProductEditForm({product,session}) {
 
   return (
     <>
+        {success && <p className={styles.success} >{success}</p>}
         {image && <img className={styles.imageProduct} src={image} alt={name} />}
         <form className={styles.formProduct}>
             <label>
