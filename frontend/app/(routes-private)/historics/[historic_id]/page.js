@@ -4,6 +4,7 @@ import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 import { Suspense } from 'react'
 import HistoricProduct from '@/components/HistoricProduct/HistoricProduct'
 import { getHistoric, getHistoricName } from '@/services/historicServices'
+import HistoricProductLoader from '@/components/Loaders/HistoricProductLoader/HistoricProductLoader'
 
 export default async function page({params}) {
 
@@ -12,7 +13,7 @@ export default async function page({params}) {
   
   return (
     <section className={styles.historicPage}>
-      <Suspense fallback={<p>carregando...</p>}>
+      <Suspense fallback={<HistoricProductLoader/>}>
         <HistoricProduct session={session} historic_id={historic_id}/>
       </Suspense>
     </section>

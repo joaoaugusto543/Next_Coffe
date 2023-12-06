@@ -17,6 +17,7 @@ function FormAdmin({session}) {
     const [confirmPassword,setConfirmPassword]=useState('')
     const [loader,setLoader]=useState(false)
     const [errors,setErrors]=useState({})
+    const [success,setSuccess]=useState('')
 
     function handleLeft(){
         if(count <= 0){
@@ -60,6 +61,12 @@ function FormAdmin({session}) {
             return
           }
 
+          setSuccess('Admin criado')
+
+          setTimeout(()=>{
+            setSuccess('')
+          },3000)
+
           setName('')
           setEmail('')
           setCount(0)
@@ -70,6 +77,7 @@ function FormAdmin({session}) {
 
   return (
     <>
+        {success && <p className={styles.success}>{success}</p>}
         <div className={styles.imgs}>
             <img src={`${imgs}/${images[count]}`} alt={images[count]} />
             {count !== 0 && <button className={styles.left} onClick={handleLeft}><IoIosArrowBack/></button>}

@@ -66,3 +66,55 @@
         opacity: 1;
     }
 }
+
+@media (max-width:546px){
+    .productLoader{
+        width: 300px;
+        margin-left: 0em;
+    }
+
+    .button{
+        width: 90px;
+        height: 40px;
+    }
+
+}
+
+@media (max-width:430px){
+    .productLoader{
+        width: 250px;
+        height: 500px;
+    }
+
+    .image{
+        height: 200px;
+    }
+
+    .lineOne,.lineTwo{
+        height: 20px;
+    }
+
+    .button{
+        height: 30px;
+    }
+
+}
+
+@media(max-width:325px){
+    .productLoader{
+        width: 200px;
+        height: 400px;
+    }
+
+    .image{
+        height: 150px;
+    }
+
+    .lineOne,.lineTwo{
+        height: 18px;
+    }
+
+    .button{
+        height: 25px;
+    }
+}

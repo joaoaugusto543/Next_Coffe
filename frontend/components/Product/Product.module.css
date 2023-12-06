@@ -196,3 +196,62 @@
     background-color: red;
     color: #fff;
 }
+
+@media (max-width:546px){
+    .product{
+        width: 300px;
+        margin-left: 0em;
+    }
+
+    .threePoints{
+        left: 10px;
+    }
+
+    .commands{
+        left:40px ;
+    }
+
+    .favorite svg{
+        font-size: 25px;
+    }
+}
+
+@media (max-width:324px){
+    .product{
+        width: 250px;
+    }
+
+    .type{
+        margin-left: 0.1em;
+    }
+
+    .product h2{
+        font-size: 20px;
+    }
+
+    .price,.discount{
+        font-size: 20px;
+    }
+
+    .percentage{
+        font-size: 12px;
+    }
+
+    .priceDiscount{
+        font-size: 16px;
+    }
+
+    .buy input[type='submit']{
+        width: 90px;
+        font-size: 12px;
+        height: 35px;
+    }
+
+    .buy input[type='number']{
+        height: 35px;
+    }
+
+    .buttons{
+        height: 35px;
+    }
+}

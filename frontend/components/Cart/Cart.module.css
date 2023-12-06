@@ -1,5 +1,5 @@
 .cart{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
@@ -100,3 +100,53 @@
 .divIcon{
     position: relative;
 }
+
+@media(max-width:1517px){
+    .cart{
+        width: 50%;
+    }
+}
+
+@media(max-width:1127px){
+    .iconCart{
+        top: -14px;
+        right: -25px;
+    }
+}
+
+@media(max-width:913px){
+    .cart{
+        width: 70%;
+    }
+}
+
+@media(max-width:641px){
+    .cart{
+        width: 90%;
+    }
+}
+
+@media(max-width:501px){
+    .cart h1{
+        font-size: 25px;
+    }
+    
+    .buy button{
+        width: 120px;
+        height: 35px;
+    }
+    
+    
+    .iconCart{
+        margin: 0.7em 1.2em;
+        font-size: 35px;
+        padding: 0.2em;
+    }
+    
+    
+    .total{
+        font-size: 20px;
+    }
+        
+}
+

@@ -25,8 +25,6 @@ function SecurityForm({token}) {
 
     const res=await updateUser(token,userUpdated)
 
-    console.log(res)
-
     if(res.errors){
       setError('Ocorreu uma falha, verifique suas informações')
       setTimeout(()=>setError(''),3000)

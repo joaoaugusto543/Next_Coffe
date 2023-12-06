@@ -27,6 +27,7 @@
     height: 400px;
     width: 400px;
     padding: 2em;
+    max-height: 100vh;
 }
 
 .divForm h1{
@@ -129,4 +130,83 @@
     font-weight: bold;
     margin-bottom: 1em;
     margin-top: -1em;
+}
+
+@media(max-width:800px){
+    
+    
+    .divForm h1{
+        font-size: 30px; 
+    }
+            
+    .formLogin label > span{
+        font-size: 18px;
+    }
+    
+    .formLogin input[type='email'],.formLogin input[type='password']{
+        font-size: 16px;
+    }
+    
+    .formLogin input[type='submit']{
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+    
+
+    .boxLogin a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+    
+    .linkHome{
+        font-size: 18px;
+    }
+    
+    .linkHome svg{
+        font-size: 20px;
+    }
+    
+    .error{
+        font-size: 18px;
+    }
+}
+
+@media(max-width:550px){
+    .divForm h1{
+        font-size: 25px; 
+    }
+            
+    .formLogin label > span{
+        font-size: 16px;
+    }
+    
+    .formLogin input[type='email'],.formLogin input[type='password']{
+        font-size: 14px;
+    }
+    
+    .formLogin input[type='submit']{
+        width: 80px;
+        height: 28px;
+        font-size: 14px;
+    }
+    
+    .boxLogin a{
+        font-size: 12px;
+    }
+        
+    
+    .error{
+        font-size: 16px;
+    }
+}
+
+@media(max-height:430px){
+    .divForm{
+        overflow-y: scroll;
+    }
+
+    
 }

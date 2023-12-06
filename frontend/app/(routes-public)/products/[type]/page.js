@@ -4,10 +4,17 @@ import ProductsLoader from '@/components/Loaders/ProductsLoader/ProductsLoader'
 import { Suspense } from 'react'
 import Products from '@/components/Products/Products'
 import Link from 'next/link'
+import { getServerSession } from 'next-auth'
+import { profile } from '@/services/userServices'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 
-export default function ProductsType({params}) {
+export default async function ProductsType({params}) {
 
     const type=params.type
+
+    const session=await getServerSession(nextAuthOptions)
+
+    const user=await profile(session?.token)
   
   return (
     <>
@@ -24,7 +31,7 @@ export default function ProductsType({params}) {
         </div>
         <div className={styles.products}>
           <Suspense fallback={<ProductsLoader/>}>
-            <Products type={type}/>
+            <Products type={type} session={session} user={user}/>
           </Suspense>
         </div>
       </section>

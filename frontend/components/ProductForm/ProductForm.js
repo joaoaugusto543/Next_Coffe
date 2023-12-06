@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './ProductForm.module.css'
 import { createProduct, showErrors } from '@/services/productsServices'
 
@@ -13,6 +13,7 @@ function ProductForm({session}) {
     const [description,setDescription]=useState('')
     const [loader,setLoader]=useState(false)
     const [errors,setErrors]=useState({})
+    const [success,setSuccess]=useState('')
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -43,11 +44,26 @@ function ProductForm({session}) {
         }
 
         setLoader(false)
+
+        setErrors({})
+
+        setSuccess('Produto Criado')
+
+        setTimeout(()=>{
+          setSuccess('')
+        },3000)
+
         setName('')
+
         setPrice('R$ 00,00')
+
         setImage('')
+
         setDescription('')
+
         setType('')
+
+        return
     }
 
     function handlePrice(e){
@@ -145,6 +161,7 @@ function ProductForm({session}) {
 
   return (
     <>
+        {success && <p className={styles.success}>{success}</p>}
         {image && <img className={styles.imageProduct} src={image} alt={name} />}
         <form className={styles.formProduct} onSubmit={handleSubmit}>
             <label>

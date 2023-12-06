@@ -1,29 +1,39 @@
+'use client'
+import { useEffect, useState } from 'react'
 import styles from './Products.module.css'
-import { getServerSession } from 'next-auth'
 import Product from '../Product/Product'
 import { getProducts } from '@/services/productsServices'
-import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
-import { profile } from '@/services/userServices'
 import { videos } from '@/app/api/api'
+import ProductsLoader from '../Loaders/ProductsLoader/ProductsLoader'
 
-async function Products({type}) {
+function Products({type,session,user}) {
 
-    const products=await getProducts(type)
+  const [products,setProducts]=useState([])
+  const [loader,setLoader]=useState(true)
+  const [wait,setWait]=useState(false)
 
-    const session=await getServerSession(nextAuthOptions)
+  useEffect(()=>{
+    handleGetProducts()
+  },[type])
 
-    const user=await profile(session?.token)
+  
+  async function handleGetProducts(){
+      const products=await getProducts(type)
+      setProducts(products)
+      setLoader(false)
+  }
 
   return (
     <>
-        {products.length === 0 &&
+        {products.length === 0 && loader && <ProductsLoader/>}
+        {products.length === 0 && !loader &&
           <div className={styles.divVideo}>
             <video className={`${styles.video}`} autoPlay loop muted src={`${videos}/empty_products.mp4`}></video>
             <p>Estamos sem produtos no momento</p>
          </div>
         }
         {products && products.map((product)=>
-            <Product key={product.id}  session={session} user={user} onProduct={product}/>
+            <Product key={product.id} wait={wait} setWait={setWait}  session={session} user={user} onProduct={product}/>
         )}
     </>
   )

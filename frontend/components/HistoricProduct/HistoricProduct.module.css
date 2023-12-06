@@ -62,3 +62,64 @@
 .historicProductsPage a > svg{
     margin-right: 0.5em;
 }
+
+@media(max-width:1100px){
+    .historicProductsPage a{
+        display: none;
+    }
+}
+
+@media(max-width:900px){
+    .historicProductsPage h1{
+        font-size: 30px;
+        margin-top: 1em;
+    }
+
+    .total{
+        font-size: 30px;
+    }
+}
+
+@media(max-width:700px){
+    .productHistoric p,.productHistoric span{
+        font-size: 20px;
+    }
+
+    .productHistoric img{
+        width: 150px;
+        height: 150px;
+    }
+
+    .historicProductsPage h1,.total{
+        font-size: 25px;
+    }
+}
+
+@media(max-width:503px){
+    .productHistoric p,.productHistoric span{
+        font-size: 16px;
+    }
+
+    .productHistoric img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .historicProductsPage h1,.total{
+        font-size: 20px;
+    }
+}
+
+@media(max-width:402px){
+    .productHistoric{
+        flex-direction: column;
+    }
+
+    .productHistoric p{
+        margin: 1em 0;
+    }
+
+    .productHistoric p,.productHistoric span{
+        font-size: 18px;
+    }
+}

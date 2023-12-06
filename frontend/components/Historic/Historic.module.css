@@ -73,3 +73,69 @@
         transform: rotate(360deg);
     }
 }
+
+@media(max-width:900px){
+    .loader{
+        height: 30px;
+        width: 30px;
+        border: 2px solid #000;
+        border-top-color:transparent;
+    }
+}
+
+@media(max-width:672px){
+    .historic p{
+        font-size: 16px;
+    }
+
+    .imageAlone,.twoImages,.fourImages{
+        width: 150px;
+        height: 130px;
+    }
+
+    .historic button{
+        font-size: 20px;
+    }
+    
+}
+
+@media (max-width:544px){
+    .imageAlone,.twoImages,.fourImages{
+        width: 130px;
+        height: 100px;
+    }
+
+    .loader{
+        height: 20px;
+        width: 20px;
+        
+    }
+}
+
+@media(max-width:513px){
+    .historic{
+        flex-direction: column;
+        padding: 2em;
+    }
+
+    .historic p{
+        margin: 2em 0;
+    }
+
+    .imageAlone,.twoImages,.fourImages{
+        width: 150px;
+        height: 130px;
+    }
+
+    .loader{
+        height: 30px;
+        width: 30px;
+        
+    }
+}
+
+@media(max-width:374px){
+    .historic p{
+        font-size: 14px;
+    }
+}

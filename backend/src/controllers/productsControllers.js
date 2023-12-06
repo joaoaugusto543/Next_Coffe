@@ -114,6 +114,31 @@ async function deleteProduct(req,res){
         const conditionIdProduct=`id_product = '${id}'`
 
         await deleteLine('comments',conditionIdProduct)
+
+        const users=await select('users',['favorites','id'])
+
+        users.map(async user => {
+
+            if(user.favorites.length === 0){
+                return
+            }
+
+            const favorites=user.favorites.map(favorite => JSON.parse(favorite))
+
+            const filteredFavorites = favorites.filter((favorite) => favorite.id !== id)
+
+            if(favorites.length === filteredFavorites.length){
+                return
+            }
+
+            const filteredFavoritesString=filteredFavorites.map(favorite => "'" + JSON.stringify(favorite) + "'")
+
+            const set=` favorites = array [${filteredFavoritesString}]`
+
+            const conditionId=`id = '${user.id}'`
+
+            await update('users',set,conditionId)
+        })
     
         return res.status(200).json(product)
         

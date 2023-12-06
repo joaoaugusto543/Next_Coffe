@@ -4,3 +4,9 @@
     max-height: 100vh;
     overflow-y: scroll;
 }
+
+@media(max-width:1100px){
+    .historicPage{
+        width: 100%;
+    }
+}
