@@ -107,11 +107,7 @@
         flex-direction: column;
         margin-bottom: 3em;
         height: 170px;
-    }
-
-    
-    .product button{
-        left: 107px;
+        width: 120px;
     }
 
     .product img{
