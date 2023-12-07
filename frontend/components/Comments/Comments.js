@@ -109,7 +109,7 @@ function Comments({onComments,session,idProduct,user}) {
                 </div>
             </div> 
         }
-        {comments && comments.map((comment)=><Comment comments={comments} setComments={setComments} key={comment.id} session={session} comment={comment}/>)}
+        {comments && comments.map((comment)=><Comment user={user} comments={comments} setComments={setComments} key={comment.id} session={session} comment={comment}/>)}
     </>
   )
 }

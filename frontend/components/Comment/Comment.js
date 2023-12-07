@@ -9,7 +9,7 @@ import { deleteComment } from '@/services/commentsServices'
 import { deleteUser } from '@/services/userServices'
 import Warning from '../Warning/Warning'
 
-function Comment({comment,session,setComments,comments}) {
+function Comment({comment,session,setComments,comments,user}) {
 
   const [showConfigComment,setShowConfigComment]=useState(false)
   const [showWarning,setShowWarning]=useState(false)
@@ -73,9 +73,9 @@ function Comment({comment,session,setComments,comments}) {
               {comment.assessment === 5 ? <span className={styles.fullStar}><AiFillStar/></span> : <span className={styles.emptyStar}><AiOutlineStar/></span>}
           </div>
           <p className={styles.textComment}>{comment.comment}</p>
-          {!showConfigComment && <button className={styles.threePoints} onClick={openDeleteComment}><BsThreeDotsVertical/></button>}
-          {showConfigComment && <button className={styles.threePoints} onClick={closeDeleteComment}><BsThreeDotsVertical/></button>}
-          {showConfigComment &&
+          {user && !showConfigComment && <button className={styles.threePoints} onClick={openDeleteComment}><BsThreeDotsVertical/></button>}
+          {user && showConfigComment && <button className={styles.threePoints} onClick={closeDeleteComment}><BsThreeDotsVertical/></button>}
+          {user && showConfigComment &&
             <div className={styles.configComment}>
               <button className={styles.delete} onClick={handleDeleteComment} >{!loader ? 'Deletar Comentário' : 'Aguarde'}</button>
               {session.user.admin && session.user.id !== comment.id_user && <button onClick={handleShowWarning}>{!loader ? 'Deletar Usuário' : 'Aguarde'}</button>}

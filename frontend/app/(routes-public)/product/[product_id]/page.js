@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Assessment from '@/components/Assessment/Assessment'
 import { Suspense } from 'react'
 import ProductPageLoader from '@/components/Loaders/ProductPageLoader/ProductPageLoader'
-import { getProduct } from '@/services/productsServices'
+import { getProduct, getProducts } from '@/services/productsServices'
 import { getComments } from '@/services/commentsServices'
 import Comments from '@/components/Comments/Comments'
 import { getServerSession } from 'next-auth'
@@ -19,11 +19,28 @@ export default async function product({params}) {
   const product=await getProduct(params.product_id)
   const comments=await getComments(params.product_id)
   const session=await getServerSession(nextAuthOptions)
-  const user=await profile(session.token)
+  const user=await getUser(session)
+  
+  async function getUser(session){
 
+    let user
+
+    try {
+
+      user=await profile(session.token)
+      
+    } catch (error) {
+      user=null
+    }
+
+    return user
+  }
+  
   if(product.error){
     redirect('/')
   }
+  
+  
 
   return (
     <section className={styles.productPage}>
@@ -45,22 +62,12 @@ export default async function product({params}) {
   )
 }
 
-export async function generateStaticParams(){
-    const request=await fetch('http://localhost:5000/api/products/')
-    const products=await request.json()
-    return products.map((product)=>{
-        product_id:String(product.id)
-    })
-}
-
 export async function generateMetadata({params}){
-  const requeste=await fetch(`http://localhost:5000/api/products/${params.product_id}`)
 
-  const product=await requeste.json()
+  const product=await getProduct(params.product_id)
 
   return {
     title:product.name,
     description:product.description
   }
 }
-
