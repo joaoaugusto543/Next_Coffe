@@ -109,6 +109,11 @@
         height: 170px;
     }
 
+    
+    .product button{
+        left: 107px;
+    }
+
     .product img{
         margin-bottom: 1em;
     }
