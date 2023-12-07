@@ -1,4 +1,4 @@
-# Next_Coffe
+# NextCoffee
 
 ![nextcooffee](https://github.com/joaoaugusto543/Next_Coffe/assets/119535029/4d67ae68-ebcf-4bc9-a9b6-51edcc8b3e6f)
 
