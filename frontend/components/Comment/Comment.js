@@ -73,8 +73,10 @@ function Comment({comment,session,setComments,comments,user}) {
               {comment.assessment === 5 ? <span className={styles.fullStar}><AiFillStar/></span> : <span className={styles.emptyStar}><AiOutlineStar/></span>}
           </div>
           <p className={styles.textComment}>{comment.comment}</p>
-          {user && !showConfigComment && <button className={styles.threePoints} onClick={openDeleteComment}><BsThreeDotsVertical/></button>}
-          {user && showConfigComment && <button className={styles.threePoints} onClick={closeDeleteComment}><BsThreeDotsVertical/></button>}
+          {user && !showConfigComment && user.id === comment.id_user && <button className={styles.threePoints} onClick={openDeleteComment}><BsThreeDotsVertical/></button>}
+          {user && showConfigComment && user.id === comment.id_user && <button className={styles.threePoints} onClick={closeDeleteComment}><BsThreeDotsVertical/></button>}
+          {user && !showConfigComment && user.id !== comment.id_user && session.user.admin && <button className={styles.threePoints} onClick={openDeleteComment}><BsThreeDotsVertical/></button>}
+          {user && showConfigComment && user.id !== comment.id_user && session.user.admin && <button className={styles.threePoints} onClick={closeDeleteComment}><BsThreeDotsVertical/></button>}
           {user && showConfigComment &&
             <div className={styles.configComment}>
               <button className={styles.delete} onClick={handleDeleteComment} >{!loader ? 'Deletar Comentário' : 'Aguarde'}</button>
