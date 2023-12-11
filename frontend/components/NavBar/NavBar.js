@@ -1,16 +1,25 @@
+'use client'
 import { imgs } from '@/app/api/api'
 import styles from './NavBar.module.css'
 import Link from 'next/link'
 import ButtonLogout from '../ButtonLogout/ButtonLogout'
-import { CiMenuBurger } from 'react-icons/ci'
+import { AiOutlineMenu } from 'react-icons/ai'
+import { useRouter } from 'next/navigation'
+import { useLayoutEffect } from 'react'
 
 
 async function NavBar({user,session}) {
 
+    const router=useRouter()
+
+    useLayoutEffect(()=>{
+        router.refresh()
+    },[session])
+
   return (
     <>
         <label htmlFor='buttonNav' className={styles.buttonNavBar}>
-            <CiMenuBurger/>
+            <AiOutlineMenu/>
         </label>
         <input className={styles.check} id='buttonNav' type='checkbox' />
         <nav className={styles.nav}>
